@@ -2,7 +2,6 @@
  * room路由集合
  * @type {[type]}
  * @author zhoumq
- * @company Flym
  */
 const Router = require('koa-router')
     , RoomController = require('../common/controllers/room');
