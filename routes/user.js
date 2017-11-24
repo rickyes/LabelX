@@ -2,7 +2,6 @@
  * user路由集合
  * @type {[type]}
  * @author zhoumq
- * @company Flym
  */
 const Router = require('koa-router')
     , UserController = require('../common/controllers/user');
