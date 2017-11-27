@@ -19,4 +19,10 @@ Koa2 游戏基础框架
 └── views  视图
 ```
 
+> develop
+```
+git clone https://github.com/zhoumingque/LabelX.git
+cd LabelX && npm install
+npm run startnode
+```
 觉得有用的话，麻烦star一下呗。。。
