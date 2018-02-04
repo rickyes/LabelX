@@ -19,6 +19,7 @@ const Koa = require('koa')
  * 设置中间件集合
  */
 app
+  .use(middlewares.controll())
   .use(middlewares.log())
   .use(middlewares.error())
   .use(middlewares.cors())

@@ -18,7 +18,7 @@ module.exports = {
   redis: {
     HOST: 'localhost',
     AUTH: '!@#$%^',
-    DB: 6,
+    DB: 0,
     PORT: 6379,
     FAMILY: 4  // 4 (IPv4) or 6 (IPv6)
   },
