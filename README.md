@@ -1,8 +1,12 @@
 # LabelX
 Koa2 游戏基础框架
-[![Build Status](https://travis-ci.org/zhoumingque/LabelX.svg?branch=master)](https://travis-ci.org/zhoumingque/LabelX)
 
-### 小型游戏服务端开发框架，可以做二次开发
+[![Build Status](https://travis-ci.org/zhoumingque/LabelX.svg?branch=master)](https://travis-ci.org/zhoumingque/LabelX)
+[![npm](https://img.shields.io/npm/v/npm.svg)](https://github.com/zhoumingque/LabelX)
+[![node](https://img.shields.io/badge/node-%3E%3D8-green.svg)](https://github.com/zhoumingque/LabelX)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/zhoumingque/LabelX)
+
+### 小型游戏服务端开发框架
 
 ```├── app.js 
 ├── common  控制器/mysql持久化服务/socket.io服务
@@ -42,6 +46,9 @@ npm run dev
 ### 添加mysql持久化服务（service）
 
 每个控制器对应一个或多个service,将controller传递过来的数据进行读写
+
+### 访问队列 （[LockX](https://github.com/zhoumingque/LockX)）
+
 
 
 
