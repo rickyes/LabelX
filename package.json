@@ -5,14 +5,11 @@
   "main": "app.js",
   "author": "zhoumq",
   "scripts": {
-    "start_flym": "NODE_ENV=production pm2 start app.js --name LabelX --interpreter=/root/.nvm/versions/node/v8.0.0/bin/node -o ./logs/out.log -e ./logs/error.log",
     "start": "NODE_ENV=production pm2 start app.js --name=LabelX -o ./logs/out.log -e ./logs/error.log",
-    "startnode": "NODE_ENV=production node app.js",
-    "startmax": "NODE_ENV=production pm2 start app.js -i max --name=LabelX -o ./logs/out.log -e ./logs/error.log",
-    "stop": "pm2 stop LabelX && pm2 delete LabelX",
-    "test": "istanbul cover _mocha"
+    "dev": "NODE_ENV=production node app.js",
+    "stop": "pm2 stop LabelX && pm2 delete LabelX"
   },
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "config-lite": "^2.1.0",
     "crypto": "^1.0.1",

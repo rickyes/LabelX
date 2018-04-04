@@ -1,5 +1,6 @@
 # LabelX
 Koa2 游戏基础框架
+[![Build Status](https://travis-ci.org/zhoumingque/LabelX.svg?branch=master)](https://travis-ci.org/zhoumingque/LabelX)
 
 ### 小型游戏服务端开发框架，可以做二次开发
 
@@ -23,7 +24,7 @@ Koa2 游戏基础框架
 ```
 git clone https://github.com/zhoumingque/LabelX.git
 cd LabelX && npm install
-npm run startnode
+npm run dev
 
 版本：Node.js V8.1.0，ORM Sequelize
 ```
