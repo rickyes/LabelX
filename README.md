@@ -25,13 +25,30 @@ Koa2 游戏基础框架
 ```
 
 ### develop
-```
-git clone https://github.com/zhoumingque/LabelX.git
-cd LabelX && npm install
-npm run dev
 
-版本：Node.js V8.1.0，ORM Sequelize
+#### 用 [labelx-cli](https://github.com/zhoumingque/labelx-cli) 来初始化项目
+
+[![NPM](https://nodei.co/npm/labelx-cli.png?compact=true)](https://nodei.co/npm/labelx-cli/)
+
+#### install labelx-cli
+
+```bash
+$ npm i labelx-cli -g
 ```
+
+#### bax init
+
+```bash
+$ bax init [name]
+```
+
+#### run
+
+```bash
+$ cd [name] && npm run dev
+```
+> 版本：Node.js V8.1.0，ORM Sequelize
+
 需要修改配置文件： config/default.js
 修改mysql、redis 地址
 ### 添加路由（router）
