@@ -141,18 +141,129 @@ function sign(params){
 
 
 /**
- * 生成判断参数类型函数
+ * 类型判断
  * eg:
- * var isString = isType('String');
- * var str = 'hello world';
- * console.log(isString(str)) // true
- * @param {类型字符串} type 
+ * let isPass = isType('String','hello'); // true
+ * isPass = isType('Number',1); // true
+ * 结合TYPE枚举
+ * let isPass = isType(TYPE.String,'hello'); // true
+ * isPass = isType(TYPE.Number,1); // true
+ * @param {类型字符串} type
  */
-function isType(type){
-  return function(obj){
-    return Object.prototype.toString.call(obj) == `[object ${type}]`;
+function isType (type, obj) {
+  return Object.prototype.toString.call(obj) === `[object ${type}]`
+}
+
+/**
+ * 生成defineProperties参数
+ * @param args 属性数组
+ * @param conf 数据属性配置
+ */
+function buildProperties(args,conf){
+  let obj = {};
+  if(!exports.isType('Array',args)){
+    throw new TypeError(`'${args}' is not Array`);
+  }
+  args.map(item => {
+    conf = JSON.parse(JSON.stringify(conf));
+    conf.value = item;
+    obj[item] = conf;
+  });
+  return obj;
+}
+
+
+/**
+ * toString类型
+*/
+const TYPE = Object.defineProperties({},buildProperties(
+  ['Array','Object','String','Function','Number','Boolean','Symbol','Undefined'],
+  {
+    enumerable: true,
+    configurable: false,
+    writable: false
+  }
+));
+
+/**
+ * 排序
+ * @param {排序字段} properyName
+ * @param {运算符} pattern
+ */
+function sortByproperty(properyName, pattern = '>') {
+  var sortFun = function (obj1, obj2) {
+    if (eval(`${obj1[properyName]} ${pattern} ${obj2[properyName]}`)) {
+      return 1;
+    } else if (obj1[properyName] == obj2[properyName]) {
+      return 0;
+    } else {
+      return -1;
+    }
+  }
+  return sortFun;
+}
+
+/**
+ * 生成每单位秒/分/小时执行一次rule
+ * @param  {[type]} type  秒/分/时（second,minute,hour）
+ * @param  {[type]} value 间隔
+ * @param  {[type]} rule  RecurrenceRule实例
+ */
+function buildRule(type, value, rule) {
+  const _times = [];
+  let _num = 0;
+  const timeType = exports.timeType;
+  typeof (value) === 'string' ? value = parseInt(value) : 0;
+  switch (type) {
+    case timeType.SECOND:
+      _num = 60 / value;
+      rule.second = _times;
+      break;
+    case timeType.MINUTE:
+      _num = 60 / value;
+      rule.minute = _times;
+      break;
+    case timeType.HOUR:
+      _num = 12 / value;
+      rule.hour = _times;
+      break;
+  }
+  _num = Math.floor(_num);
+  for (; _num > 0; _num--) {
+    _times.push(value * _num);
   }
 }
+
+/**
+ * 生成只读enum对象
+ * @param {枚举基类} obj
+ */
+function buildEnum(obj) {
+  return new Proxy(obj, {
+    get(target, prop) {
+      if (target[prop]) {
+        return Reflect.get(target, prop);
+      } else {
+        throw new ReferenceError(`Unknown enum '${prop}'`);
+      }
+    },
+    set() {
+      throw new TypeError('Enum is readonly');
+    },
+    deleteProperty() {
+      throw new TypeError('Enum is readonly');
+    }
+  });
+}
+
+/**
+ * 定时器枚举
+ */
+const timeType = buildEnum({
+  SECOND: 'second',
+  MINUTE: 'minute',
+  HOUR: 'hour'
+});
 
 module.exports = {
   filterAToB,
@@ -163,5 +274,11 @@ module.exports = {
   sendTemp,
   promisify,
   sign,
-  isType
+  isType,
+  TYPE,
+  buildProperties,
+  sortByproperty,
+  buildRule,
+  timeType,
+  buildEnum
 }
