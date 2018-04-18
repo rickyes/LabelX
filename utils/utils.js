@@ -161,7 +161,7 @@ function isType (type, obj) {
  */
 function buildProperties(args,conf){
   let obj = {};
-  if(!exports.isType('Array',args)){
+  if(!isType('Array',args)){
     throw new TypeError(`'${args}' is not Array`);
   }
   args.map(item => {
