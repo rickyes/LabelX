@@ -41,7 +41,9 @@ function cloneDeep(obj){
  */
 function isEmpty(){
   for (let obj of arguments) {
-    if(obj === null || obj === '' || obj === undefined){
+    if (obj === null || obj === undefined) {
+      return true;
+    } else if (exports.isType(exports.TYPE.String, obj) && obj.trim() === ''){
       return true;
     }
   }
