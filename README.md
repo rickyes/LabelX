@@ -1,10 +1,10 @@
 # LabelX
 Koa2 游戏基础框架
 
-[![Build Status](https://travis-ci.org/zhoumingque/LabelX.svg?branch=master)](https://travis-ci.org/zhoumingque/LabelX)
-[![npm](https://img.shields.io/npm/v/npm.svg)](https://github.com/zhoumingque/LabelX)
-[![node](https://img.shields.io/badge/node-%3E%3D8-green.svg)](https://github.com/zhoumingque/LabelX)
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/zhoumingque/LabelX)
+[![Build Status](https://travis-ci.org/rickyes/LabelX.svg?branch=master)](https://travis-ci.org/rickyes/LabelX)
+[![npm](https://img.shields.io/npm/v/npm.svg)](https://github.com/rickyes/LabelX)
+[![node](https://img.shields.io/badge/node-%3E%3D8-green.svg)](https://github.com/rickyes/LabelX)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/rickyes/LabelX)
 
 ### 小型游戏服务端开发框架
 
